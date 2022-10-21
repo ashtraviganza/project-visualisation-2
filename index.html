@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>Project Visualisation 2</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/pure-min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@2.2.0/build/grids-responsive-min.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap" rel="stylesheet">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+        <script src="script.js"></script>
+
+    </head>
+
+    <body id="bg-colour">
+
+        <div class="pure-u-1">
+            <img src="https://data.whicdn.com/images/312747394/original.jpg" height="100%" width="100%">
+        </div>
+
+        <hr id="div-line-colour">
+
+        <h1 id="title">Humans of Spotify - Their Taste in Music (May 2020)</h1>
+
+        <p id="title-desc">
+            Spotify is a audio streaming and media services application that is home to 50 million tracks uploaded by both celebrity artist
+            and indie artist alike. The application is currently being used by millions of users around the globe. The high usage of Spotify
+            allows the world to accumulate so much data, especially towards user's music preferences and listening patterns. This is a visualisation
+            of the universe's music preference.
+        </p>
+  
+        <div class="pure-g" id="alignment-bar">
+            <div class="pure-u-1-2" id="barchart1"></div>
+            <div class="pure-u-1-2" id="barchart2"></div>
+        </div>
+
+        <div class="pure-g" id="chart-desc">
+            <div class="pure-u-1-2">
+                <p>
+                    This is a bar chart depicting the top 10 artists (with their feature) whos track got chartered most in the top 50 globally.
+                    The number of times the artist got chartered is aggregated by the frequency of the artist appearing in top 50 for every country.
+                    The ranking is emphasised by the changes in depth of the colour hue.
+                </p>
+            </div>
+            <div class="pure-u-1-2">
+                <p>
+                    This is a bar chart depicting the top 10 tracks that are chartered most in the top 50 globally. "ROCKSTAR", "Break My Heart"
+                    and "ily" all have the same number of times being chartered globally, thus the three tracks share the same ranking in 10th place.
+                    The ranking is also emphasised by the changes in depth of the colour hue.
+                </p>
+            </div>
+        </div>
+
+        <hr id="div-line2-colour">
+
+        <div class="pure-g" id="alignment-map">
+            <div class="pure-u-1-2" id="choropleth"></div>
+            <div class="pure-u-1-2">
+                <p id="chart-desc">
+                    The choropleth map represents the number of explicit songs that have been chartered on the top 50 for every country. A total of 62
+                    countries have been evaluated, some countries are missing from the chart as it reflects the countries being logged in the dataset.
+                    Upon visual inspection, Greece has the most number tracks (42) that are chartered and labelled as explicit. This means many people
+                    in Greece prefer to listen to music with a more mature nature. On the contrary, Japan has 0 explicit songs chartered in the top 50.
+                </p>
+            </div>
+        </div>
+
+        <hr id="div-line2-colour">
+
+        <div class="pure-g" id="alignment-pie">
+            <div class="pure-u-1-2" id="piechart1"></div>
+            <div class="pure-u-1-2" id="piechart2"></div>
+        </div>
+
+        <p id="title-desc">
+            The above piecharts show the number of explicit and non-explicit tracks that were chartered for each continent. This
+            is able to show the song maturity preference of people within the specific continent. Based on observation, we can conclude that there are more non-explicit tracks than explicit tracks being chartered in the top 50
+            for every country. Europe, the biggest contributing continent in the dataset, has more non-explicit tracks chartered than explicit
+            tracks.
+        </p>
+
+    </body>
+
+</html>
