@@ -1,0 +1,93 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 400,
+    "height": 300,
+    "title": { 
+        "text": "Top 10 Global Chartered Tracks",
+        "fontSize": 20,
+        "font": "Arial Black",
+        "color":"white"
+    },
+    "data":{
+        "url": "https://raw.githubusercontent.com/ashtraviganza/project-visualisation-2/main/SpotifyTopSongsByCountry%20-%20May%202020.csv"
+    },
+    "description": "A bar chart depicting the top 10 tracks that are chartered most in the top 50 globally.",
+    "transform":[{
+        "aggregate": [{
+            "op": "count",
+            "field": "Title",
+            "as": "Count_Chartered"
+           }],
+        "groupby": ["Title"]
+    },
+    {"filter": "datum.Count_Chartered >= 34"}
+    ],
+    "params": [
+        {
+          "name": "highlight",
+          "select": {"type": "point", "on": "mouseover"}
+        },
+        {"name": "select", "select": "point"}
+    ],
+    "mark": {"type": "bar", "stroke": "white", "cursor": "pointer"},
+    "encoding":{
+
+        "x": {
+            "field": "Title",
+            "type": "nominal",
+            "title": "Track Name",
+            "sort":"-y"
+            },
+        "y": {
+            "field": "Count_Chartered",
+            "type": "quantitative",
+            "title": "No. of times chartered"
+
+        },
+        "color": {
+            "field": "Count_Chartered",
+            "type": "quantitative",
+            "scale":{
+                "domain": [35,40,45,50,55,60],
+                "range": ["#E8A0DF", "#DA67CC", "#D34AC2", "#AC299C", "#721B68", "#56144E"]
+            },
+            "title": "No. of times chartered"
+        },
+        "fillOpacity": {
+            "condition": {"param": "select", "value": 1},
+            "value": 0.3
+          },
+        "strokeWidth": {
+            "condition": [
+              {
+                "param": "select",
+                "empty": false,
+                "value": 2
+              },
+              {
+                "param": "highlight",
+                "empty": false,
+                "value": 1
+              }
+            ],
+            "value": 0
+        },
+        "tooltip": [
+            {"field": "Title", "type":"nominal", "title": "Track Name"},
+            {"field": "Count_Chartered", "type":"quantitative", "title": "No. of times chartered"}
+        ]
+        
+    },
+    "config": {
+        "axis":{
+            "grid":false,
+            "labelColor":"white",
+            "titleColor":"white"
+        },
+        "background":"black",
+        "legend":{
+            "labelColor":"white",
+            "titleColor":"white"
+        }
+    }
+}
