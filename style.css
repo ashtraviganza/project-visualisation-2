@@ -35,6 +35,14 @@
     padding-right: 120px;
 }
 
+#chart-desc2{
+    color: beige;
+    font-size: larger;
+    text-align: center;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
 #alignment-bar{
     padding-left: 140px;
     padding-right: 10px;
